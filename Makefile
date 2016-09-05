@@ -1,10 +1,10 @@
 # makefile for jump
 
-ARCH=i386
+ARCH=x86_64
 CC=gcc
-BASE_CFLAGS=-Dstricmp=strcasecmp -DQ_strncasecmp=strncasecmp
+#BASE_CFLAGS=-Dstricmp=strcasecmp -DQ_strncasecmp=strncasecmp
 
-CFLAGS=$(BASE_CFLAGS) $(SHLIBCFLAGS) -O3 -march=i586 -malign-loops=2 -malign-jumps=2 -malign-functions=2 -fno-caller-saves -Wall
+CFLAGS=$(BASE_CFLAGS) $(SHLIBCFLAGS) -O3 -march=native -mtune=native -falign-loops=2 -falign-jumps=2 -falign-functions=2 -fno-caller-saves -Wall -fPIC
 
 #gcc -nostdlib files... `gcc -print-libgcc-file-name`
 SHLIBEXT=so
